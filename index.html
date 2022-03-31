@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style type="text/css">
+      .color-red {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="root">
@@ -16,6 +22,12 @@
 
       <input id="input" type="text" v-model="newName" />
       <button @click="addName">Add Name!</button>
+
+      <!-- attribute binding -->
+      <button :title="title">Hover over me</button>
+
+      <!-- class binding -->
+      <h1 :class="className"></h1>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
@@ -25,6 +37,8 @@
       var app = new Vue({
         el: "#root",
         data: {
+          className: color-red,
+          title: "Now the title is being set through javascript",
           newName: "",
           names: ["Joe", "Marty", "Jane"],
         },
@@ -33,7 +47,7 @@
           addName() {
             this.names.push(this.newName);
 
-            this.newName = '';
+            this.newName = "";
           },
         },
       });
