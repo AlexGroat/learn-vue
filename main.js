@@ -1,46 +1,28 @@
-Vue.component("duelist-list", {
-    // slot user tags inside the list item
-    template: `<div><agent v-for="agent in agents" v-if="agent.duelist">{{ agent.name }}</agent></div>`,
+Vue.component("message", {
+  props: ["title", "body"],
 
-    data() {
-        
-        return {
-            agents: [
-                { name: 'Raze', duelist: true },
-                { name: 'Omen', duelist: false },
-                { name: 'Jett', duelist: false },
-                { name: 'Reyna', duelist: true },
-                { name: 'Viper', duelist: false },
-                { name: 'Yoru', duelist: true },
-            ]
-        }
-    }
-  });
+  data() {
+    return {
+      show: true,
+    };
+  },
 
-Vue.component("agent-list", {
-    // slot user tags inside the list item
-    template: `<div><agent v-for="agent in agents">{{ agent.name }}</agent></div>`,
+  template: `
+        <article class="message" v-show="show">
+            <div class="message-header">
 
-    data() {
-        
-        return {
-            agents: [
-                { name: 'Raze', duelist: true },
-                { name: 'Omen', duelist: false },
-                { name: 'Jett', duelist: false },
-                { name: 'Reyna', duelist: true },
-                { name: 'Viper', duelist: false },
-                { name: 'Yoru', duelist: true },
-            ]
-        }
-    }
-  });
+            {{ title }}
 
-Vue.component("agent", {
-  // slot user tags inside the list item
-  template: "<li><slot></slot></li>",
+            <button type="button" @click="show = false">x</button>
+            </div>
+
+            <div class="message-body">
+            {{ body }}
+            </div>
+        </article>
+     `,
 });
 
 new Vue({
-    el: '#root'
+  el: "#root",
 });
