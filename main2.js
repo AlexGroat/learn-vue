@@ -33,7 +33,6 @@
 // });
 
 // METHOD 2
-
 window.Event = new (class {
   constructor() {
     this.vue = new Vue();
@@ -59,7 +58,7 @@ Vue.component("coupon", {
 
   methods: {
     onCouponApplied() {
-      // emitting an event, referrenced in index4.html line 19
+      // emitting an event, referrenced in index4.html line 19/ referrenced fire on line 41
       Event.fire("applied");
     },
   },
